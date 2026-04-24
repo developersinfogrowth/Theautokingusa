@@ -163,10 +163,10 @@ export default function ContactPage() {
                       Call Us
                     </h3>
                     <a 
-                      href="tel:+1-888-505-3697"
+                      href="tel:+18664865915"
                       className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors no-underline"
                     >
-                      +1-888-505-3697
+                      +18664865915
                     </a>
                     <p className="text-gray-500 mt-2">
                       For immediate assistance
@@ -184,10 +184,10 @@ export default function ContactPage() {
                       Email Us
                     </h3>
                     <a 
-                      href="mailto:sales@rockautocare.com"
+                      href="mailto:sales@theautokingsusa.com"
                       className="text-lg text-gray-900 hover:text-blue-600 transition-colors no-underline"
                     >
-                      sales@rockautocare.com
+                      sales@theautokingsusa.com
                     </a>
                     <p className="text-gray-500 mt-2">
                       Typically responds within 1 hour
@@ -223,7 +223,7 @@ export default function ContactPage() {
                     Call our emergency support line for urgent parts needs
                   </p>
                   <a 
-                    href="tel:+1-888-505-3697"
+                    href="tel:+18664865915"
                     className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all no-underline"
                   >
                     Emergency Support Line

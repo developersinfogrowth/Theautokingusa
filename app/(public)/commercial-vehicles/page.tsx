@@ -42,10 +42,10 @@ export default function CommercialVehiclesPage() {
               Get special pricing for bulk orders and fleet accounts
             </p>
             <a 
-              href="tel:+1-888-505-3697"
+              href="tel:+18664865915"
               className="btn-primary bg-orange-600 hover:bg-orange-700 text-lg px-8 py-4 inline-block"
             >
-              Call Commercial Sales: +1-888-505-3697
+              Call Commercial Sales: +18664865915
             </a>
           </div>
         </div>

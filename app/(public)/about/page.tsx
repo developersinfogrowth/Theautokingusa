@@ -6,7 +6,7 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="bg-gradient-to-r from-gray-900 to-teal-900 text-white py-20">
         <div className="section-padding text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Rock AutoCare</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About theautokingusaA</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Your trusted partner for quality used engines and transmissions since 2005
           </p>
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="prose prose-lg mx-auto">
             <h2 className="text-3xl font-bold mb-6">Our Story</h2>
             <p className="text-gray-700 mb-6">
-              Founded in 2005, Rock AutoCare started with a simple mission: to provide 
+              Founded in 2005, theautokingusaA started with a simple mission: to provide 
               high-quality used engines and transmissions at affordable prices. Today, 
               we serve thousands of customers across the United States with our 
               commitment to quality and customer satisfaction.

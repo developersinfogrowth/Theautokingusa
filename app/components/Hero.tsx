@@ -4,7 +4,7 @@ import { Phone, Shield, Truck, Clock } from 'lucide-react';
 import { useState } from 'react';
 
 const Hero = () => {
-  const [phoneNumber] = useState('+1-888-505-3697');
+  const [phoneNumber] = useState('+18664865915');
 
   const handleCall = () => {
     window.location.href = `tel:${phoneNumber}`;

@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              ROCK AUTO<span className="text-blue-400">CARE</span>
+              THE AUTO KING <span className="text-blue-400">USA</span>
             </h3>
             <p className="text-gray-400 mb-6">
               Providing quality used engines and transmissions since 2005. 
@@ -72,8 +72,8 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-blue-400 mt-0.5" />
                 <div>
                   <div className="font-semibold">Call Us</div>
-                  <a href="tel:+1-888-505-3697" className="text-gray-400 hover:text-white">
-                    +1-888-505-3697
+                  <a href="tel:+18664865915" className="text-gray-400 hover:text-white">
+                    +18664865915
                   </a>
                 </div>
               </li>
@@ -81,8 +81,8 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-blue-400 mt-0.5" />
                 <div>
                   <div className="font-semibold">Email</div>
-                  <a href="mailto:sales@rockautocare.com" className="text-gray-400 hover:text-white">
-                    sales@rockautocare.com
+                  <a href="mailto:sales@theautokingsusa.com" className="text-gray-400 hover:text-white">
+                    sales@theautokingsusa.com
                   </a>
                 </div>
               </li>
@@ -123,7 +123,7 @@ const Footer = () => {
               <div className="font-bold text-yellow-400 mb-1">SPECIAL OFFER</div>
               <div className="text-sm">Get 10% OFF on your first order!</div>
               <a 
-                href="tel:+1-888-505-3697"
+                href="tel:+18664865915"
                 className="btn-primary bg-green-600 hover:bg-green-700 w-full mt-3"
               >
                 Call to Claim
@@ -134,7 +134,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Rock AutoCare. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} TheAutoKingUSA. All rights reserved.</p>
           <p className="mt-2 text-sm">Quality used engines and transmissions at unbeatable prices.</p>
         </div>
       </div>

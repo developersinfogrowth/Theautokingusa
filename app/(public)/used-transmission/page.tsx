@@ -45,10 +45,10 @@ export default function UsedTransmissionPage() {
               Call now for <span className="font-bold text-purple-600">10% OFF</span> your transmission order!
             </p>
             <a 
-              href="tel:+1-888-505-3697"
+              href="tel:+18664865915"
               className="btn-primary bg-purple-600 hover:bg-purple-700 text-lg px-8 py-4 inline-block"
             >
-              Call: +1-888-505-3697
+              Call: +18664865915
             </a>
           </div>
         </div>

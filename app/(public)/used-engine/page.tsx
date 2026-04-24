@@ -42,10 +42,10 @@ export default function UsedEnginePage() {
               <span className="font-bold text-green-600 ml-1">10% OFF</span>
             </p>
             <a 
-              href="tel:+1-888-505-3697"
+              href="tel:+18664865915"
               className="btn-primary text-lg px-8 py-4 inline-block"
             >
-              Call: +1-888-505-3697
+              Call: +18664865915
             </a>
           </div>
         </div>

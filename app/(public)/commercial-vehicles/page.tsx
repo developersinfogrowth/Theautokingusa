@@ -1,55 +1,150 @@
-import { Truck, Wrench, Users, Building } from 'lucide-react';
+import { Metadata } from 'next';
+import Hero from '@/app/components/home/hero/Hero';
+import FAQAccordion from '@/app/components/shared/FAQAccordion';
+import { COMMERCIAL_VEHICLES_FAQS } from './lib/faqData';
+import {
+  CommercialIntro,
+  WhyChooseCalifornia,
+  TruckBrandsSection,
+  WhyChooseUs,
+} from './components';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Commercial Vehicle Parts  Used Engines, Used Transmissions in California',
+  description:
+    'Find commercial vehicle parts & used engines and used transmissions in California for trucks, vans, and fleet vehicles. Quality-tested replacements with fast statewide shipping.',
+  keywords: [
+    'Commercial Vehicle Parts in California',
+    'Used Engines in California',
+    'Used Transmissions in California',
+    'Commercial Vehicle Engines California',
+    'Commercial Vehicle Transmissions California',
+    'Used Truck Engines California',
+    'Used Truck Transmissions California',
+    'Fleet Vehicle Parts California',
+    'Heavy Duty Truck Engines California',
+    'Commercial Auto Parts California',
+    'Diesel Engines California',
+    'Replacement Transmissions California',
+    'Freightliner Engines California',
+    'Mack Engines California',
+    'Peterbilt Engines California',
+    'Volvo Truck Engines California',
+    'International Truck Engines California',
+  ].join(', '),
+  openGraph: {
+    title: 'Commercial Vehicle Parts & Used Engines, Used Transmissions in California',
+    description:
+      'Find commercial vehicle parts & used engines and used transmissions in California for trucks, vans, and fleet vehicles. Quality-tested replacements with fast statewide shipping.',
+    url: 'https://theautokingusa.com/commercial-vehicles',
+    siteName: 'The Auto King USA',
+    images: [
+      {
+        url: '/images/commercial-vehicles-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Commercial Vehicle Parts California',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Commercial Vehicle Parts & Used Engines, Used Transmissions in California',
+    description:
+      'Find commercial vehicle parts & used engines and used transmissions in California for trucks, vans, and fleet vehicles.',
+    images: ['/images/commercial-vehicles-hero.jpg'],
+  },
+  alternates: {
+    canonical: 'https://theautokingusa.com/commercial-vehicles',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+// Schema Markup
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoPartsStore',
+  name: 'The Auto King USA - Commercial Vehicle Parts California',
+  description:
+    'Commercial vehicle parts, used engines, and used transmissions in California for trucks, vans, and fleet vehicles.',
+  url: 'https://theautokingusa.com/commercial-vehicles',
+  telephone: '+1-866-486-5915',
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'California',
+    addressCountry: 'US',
+  },
+  areaServed: {
+    '@type': 'State',
+    name: 'California',
+  },
+  priceRange: '$$',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '850',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'USD',
+    itemCondition: 'https://schema.org/UsedCondition',
+  },
+};
 
 export default function CommercialVehiclesPage() {
   return (
-    <div>
-      {/* Hero */}
-      <div className="bg-gradient-to-r from-gray-900 to-orange-900 text-white py-20">
-        <div className="section-padding text-center">
-          <Truck className="h-20 w-20 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Commercial Vehicle Parts</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Specialized parts for commercial vehicles, fleet maintenance, and heavy-duty applications
-          </p>
-        </div>
-      </div>
+    <>
+      {/* JSON-LD Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
-      <div className="section-padding py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Commercial Solutions</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <Building className="h-12 w-12 text-orange-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Fleet Services</h3>
-              <p className="text-gray-600">
-                Complete parts solutions for commercial fleets with volume discounts.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <Users className="h-12 w-12 text-orange-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Business Accounts</h3>
-              <p className="text-gray-600">
-                Special pricing and terms for registered businesses and repair shops.
-              </p>
-            </div>
-          </div>
+      <div className="min-h-screen bg-white">
+        {/* Hero Section - Common Reusable Component */}
+       <Hero
+  heading={
+    <>
+      Used Commercial{' '}
+      <span className="text-red-500 italic">Diesel Engines</span><br />
+      for Sale | Tested Truck<br />
+      Motors for Major Brands
+    </>
+  }
+/>
 
-          {/* Call to Action */}
-          <div className="bg-orange-50 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Commercial Inquiries</h3>
-            <p className="text-gray-700 mb-6">
-              Get special pricing for bulk orders and fleet accounts
-            </p>
-            <a 
-              href="tel:+18664865915"
-              className="btn-primary bg-orange-600 hover:bg-orange-700 text-lg px-8 py-4 inline-block"
-            >
-              Call Commercial Sales: +18664865915
-            </a>
-          </div>
-        </div>
+        {/* Page Sections */}
+        <CommercialIntro />
+        <WhyChooseCalifornia />
+        <TruckBrandsSection />
+        <WhyChooseUs />
+
+        {/* FAQ Section - Reusable Component */}
+        <FAQAccordion
+          faqs={COMMERCIAL_VEHICLES_FAQS}
+          title="FAQs – Commercial Used Engines & Used Transmissions"
+          subtitle="Everything you need to know about commercial vehicle parts"
+          showCTA={true}
+          ctaText="Need help with commercial parts?"
+          ctaSubtext="Our fleet specialists are ready to assist with bulk orders and technical support."
+          phoneNumber="+18664865915"
+          phoneDisplay="+1 (866) 486-5915"
+        />
       </div>
-    </div>
+    </>
   );
 }

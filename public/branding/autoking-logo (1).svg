@@ -1,0 +1,61 @@
+<svg width="1600" height="420" viewBox="0 0 1600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="420" fill="transparent"/>
+
+  <!-- AK Monogram -->
+  <g transform="translate(80,60)">
+    <!-- A -->
+    <path d="M0 280L120 80H220V280H150V170L85 280H0Z" fill="#E10600"/>
+    <path d="M150 280V160L220 80V280H150Z" fill="#E10600"/>
+
+    <!-- K -->
+    <path d="M260 180L390 60H500L360 190L510 340H395L260 210V180Z" fill="#BFC3C9"/>
+    <path d="M260 180L390 300H500L360 170L260 180Z" fill="#9FA4AA" opacity="0.9"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="610" y1="80" x2="610" y2="340" stroke="#111111" stroke-width="5"/>
+
+  <!-- AUTOKING Text -->
+  <g transform="translate(680,95)">
+    <!-- AUTO -->
+    <text x="0" y="120"
+      font-family="Montserrat, Arial, sans-serif"
+      font-size="145"
+      font-weight="800"
+      letter-spacing="2"
+      fill="#0F0F10">
+      AUTO
+    </text>
+
+    <!-- KING -->
+    <text x="520" y="120"
+      font-family="Montserrat, Arial, sans-serif"
+      font-size="145"
+      font-weight="800"
+      letter-spacing="2"
+      fill="#E10600">
+      KING
+    </text>
+
+    <!-- Tagline -->
+    <text x="5" y="215"
+      font-family="Montserrat, Arial, sans-serif"
+      font-size="42"
+      font-weight="700"
+      letter-spacing="14"
+      fill="#111111">
+      ENGINE
+    </text>
+
+    <circle cx="390" cy="200" r="8" fill="#E10600"/>
+
+    <text x="470" y="215"
+      font-family="Montserrat, Arial, sans-serif"
+      font-size="42"
+      font-weight="700"
+      letter-spacing="14"
+      fill="#111111">
+      TRANSMISSION
+    </text>
+  </g>
+</svg>

@@ -1,58 +1,156 @@
-import { Cog, Shield, Truck, Clock } from 'lucide-react';
+import { Metadata } from 'next';
+import Hero from '@/app/components/home/hero/Hero';
+import FAQAccordion from '@/app/components/shared/FAQAccordion';
+import { USED_TRANSMISSION_FAQS } from './lib/faqData';
+import CTASection from './components/CTASection';
+import {
+  TransmissionIntro,
+  WhyUsedTransmission,
+  InspectionProcess,
+  WarrantyCoverage,
+  BrandTransmissionSections,
+  CaliforniaBenefits,
+  TransmissionTypes,
+  ShopSupport,
+} from './components';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Dependable Quality-Tested Used Transmissions for All Makes and Models',
+  description:
+    'Shop quality used transmissions online with confidence. Every unit is inspected, compatibility-matched, and ready for fast nationwide shipping. Affordable replacement transmissions for all makes and models across the USA.',
+  keywords: [
+    'Used Transmissions',
+    'Used Transmission for Sale',
+    'Used Auto Transmissions',
+    'Used Manual Transmissions',
+    'Low Mileage Used Transmissions',
+    'Quality Tested Used Transmissions',
+    'Affordable Used Transmissions',
+    'Replacement Transmissions',
+    'Used Car Transmissions',
+    'Used Truck Transmissions',
+    'Used SUV Transmissions',
+    'Used Transmission with Warranty',
+    'Buy Used Transmission Online',
+    'Used Transmission Shop',
+    'Nationwide Used Transmissions',
+    'OEM Used Transmissions',
+    'Reliable Used Transmissions',
+    'Discount Used Transmissions',
+  ].join(', '),
+  openGraph: {
+    title: 'Dependable Quality-Tested Used Transmissions for All Makes and Models',
+    description:
+      'Shop quality used transmissions online with confidence. Every unit is inspected, compatibility-matched, and ready for fast nationwide shipping.',
+    url: 'https://theautokingusa.com/used-transmission',
+    siteName: 'The Auto King USA',
+    images: [
+      {
+        url: '/images/transmission-page.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Quality Used Transmissions',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dependable Quality-Tested Used Transmissions for All Makes and Models',
+    description:
+      'Shop quality used transmissions online with confidence. Every unit is inspected, compatibility-matched, and ready for fast nationwide shipping.',
+    images: ['/images/transmission-page.jpg'],
+  },
+  alternates: {
+    canonical: 'https://theautokingusa.com/used-transmission',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+// Schema Markup
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoPartsStore',
+  name: 'The Auto King USA - Used Transmissions',
+  description:
+    'Quality used transmissions for all makes and models with nationwide shipping and warranty options.',
+  url: 'https://theautokingusa.com/used-transmission',
+  telephone: '+1-866-486-5915',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+  areaServed: 'US',
+  priceRange: '$$',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '1250',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'USD',
+    itemCondition: 'https://schema.org/UsedCondition',
+  },
+};
 
 export default function UsedTransmissionPage() {
   return (
-    <div>
-      {/* Hero */}
-      <div className="bg-gradient-to-r from-gray-900 to-purple-900 text-white py-20">
-        <div className="section-padding text-center">
-          <Cog className="h-20 w-20 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Quality Used Transmissions</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Get premium quality used transmissions in "A" Grade condition with comprehensive warranty
-          </p>
-        </div>
-      </div>
+    <>
+      {/* JSON-LD Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
 
-      <div className="section-padding py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Transmission Selection</h2>
-          
-          <div className="mb-12">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Why Choose Our Transmissions?</h3>
-              <ul className="space-y-4">
-                <li className="flex items-center space-x-3">
-                  <Shield className="h-5 w-5 text-green-600" />
-                  <span>Fully tested and inspected</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <Truck className="h-5 w-5 text-green-600" />
-                  <span>Free shipping available</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <Clock className="h-5 w-5 text-green-600" />
-                  <span>Same-day shipping</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div className="min-h-screen bg-white">
+        {/* Hero Section - Common Reusable Component */}
+        <Hero
+          heading={
+            <>
+              California's Trusted Source<br />
+              for Tested Used{' '}
+              <span className="text-red-500 italic">Transmissions</span>
+            </>
+          }
+        />
 
-          {/* Call to Action */}
-          <div className="bg-purple-50 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Need a Transmission?</h3>
-            <p className="text-gray-700 mb-6">
-              Call now for <span className="font-bold text-purple-600">10% OFF</span> your transmission order!
-            </p>
-            <a 
-              href="tel:+18664865915"
-              className="btn-primary bg-purple-600 hover:bg-purple-700 text-lg px-8 py-4 inline-block"
-            >
-              Call: +18664865915
-            </a>
-          </div>
-        </div>
+        {/* Page Sections */}
+        <TransmissionIntro />
+        <WhyUsedTransmission />
+        <InspectionProcess />
+        <WarrantyCoverage />
+        <BrandTransmissionSections />
+        <CaliforniaBenefits />
+        <TransmissionTypes />
+        <ShopSupport />
+
+        {/* FAQ Section - Reusable Component */}
+        <FAQAccordion
+          faqs={USED_TRANSMISSION_FAQS}
+          title="FAQs About Buying Used Transmissions in the USA"
+          subtitle="Common questions answered about used transmission replacement"
+          showCTA={true}
+          phoneNumber="+18664865915"
+          phoneDisplay="+1 (866) 486-5915"
+        />
+
+        {/* Final CTA */}
+        <CTASection />
       </div>
-    </div>
+    </>
   );
 }

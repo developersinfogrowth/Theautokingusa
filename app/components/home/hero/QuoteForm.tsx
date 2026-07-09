@@ -26,6 +26,23 @@ const SUCCESS_STEPS = [
 interface Make  { id: number; name: string }
 interface Model { id: number; name: string }
 
+// ── ADDED: module-level cache so /api/makes is fetched once for the whole
+// site session, no matter how many times QuoteForm mounts/unmounts ─────────
+let makesCache: Make[] | null = null;
+let makesPromise: Promise<Make[]> | null = null;
+
+function getMakes(): Promise<Make[]> {
+  if (makesCache) return Promise.resolve(makesCache);
+  if (!makesPromise) {
+    makesPromise = fetch('/api/makes')
+      .then(r => (r.ok ? r.json() : []))
+      .then((data: Make[]) => { makesCache = data; return data; })
+      .catch(() => []);
+  }
+  return makesPromise;
+}
+// ── END ADDED BLOCK ────────────────────────────────────────────────────────
+
 type FormStep = 'vehicle' | 'contact' | 'success';
 
 interface VehicleInfo {
@@ -111,12 +128,11 @@ export default function QuoteForm({ onClose }: QuoteFormProps) {
     setModels([]);
   }, []);
 
-  // ── Fetch makes once on mount ────────────────────────────────────────────
+  // ── Fetch makes once on mount (cached across all QuoteForm mounts) ───────
   useEffect(() => {
-    fetch('/api/makes')
-      .then(r => (r.ok ? r.json() : []))
-      .then((data: Make[]) => setMakes(data))
-      .catch(() => setMakes([]))
+    setLoadingMakes(true);
+    getMakes()
+      .then(setMakes)
       .finally(() => setLoadingMakes(false));
   }, []);
 
@@ -367,15 +383,15 @@ export default function QuoteForm({ onClose }: QuoteFormProps) {
             {/* Phone fallback */}
             <div className="flex items-center justify-center gap-1.5 pt-1 pb-2">
               <Phone className="w-3 h-3 text-red-500 shrink-0" />
-              <p className="text-[11px] text-white/35">
-                Or call:{' '}
-                <a
-                  href={`tel:${PHONE_RAW}`}
-                  className="text-red-400/80 hover:text-red-400 font-medium transition-colors"
-                >
-                  {PHONE}
-                </a>
-              </p>
+               <p className="text-[11px] text-white/35">
+                 Or call:{' '}
+                 <a
+                   href={`tel:${PHONE_RAW}`}
+                   className="text-red-400/80 hover:text-red-400 font-medium transition-colors"
+                 >
+                   {PHONE}
+                 </a>
+               </p>
             </div>
           </div>
         )}

@@ -1,14 +1,13 @@
-import { createClient } from "@supabase/supabase-js";
+// app/api/models/route.ts
+import { createAdminClient } from "@/lib/supabase/server";
 
-const supabase = createClient(
-  process.env.PROJECT_A_SUPABASE_URL!,
-  process.env.PROJECT_A_SERVICE_ROLE_KEY!
-);
+export const revalidate = 3600;
 
 export async function GET(req: Request) {
   const make = new URL(req.url).searchParams.get("make");
-
   if (!make) return Response.json({ error: "make is required" }, { status: 400 });
+
+  const supabase = createAdminClient();
 
   const { data: makeRow } = await supabase
     .from("makes")
@@ -24,5 +23,9 @@ export async function GET(req: Request) {
     .eq("make_id", makeRow.id)
     .order("name");
 
-  return Response.json(models ?? []);
+  return Response.json(models ?? [], {
+    headers: {
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+    },
+  });
 }

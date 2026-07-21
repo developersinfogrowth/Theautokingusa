@@ -1,13 +1,15 @@
 export const BRANDING = {
   name: 'Auto King USA',
+
   logo: {
-    src:    '/branding/logo1.webp',
-    alt:    'Auto King USA — Engine & Transmission',
-    width:  1536,
+    src: '/branding/logoautoking.webp',
+    alt: 'Auto King USA — Engines & Transmission Parts',
+    width: 1536,
     height: 1024,
   },
+
   phone: {
-    display: '+1 (866) 486-5915',
-    href:    'tel:+18664865915',
+    display: '+1 (888) 318-2840',
+    href: 'tel:+18883182840',
   },
 } as const;

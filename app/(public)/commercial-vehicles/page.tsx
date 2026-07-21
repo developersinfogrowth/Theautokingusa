@@ -81,7 +81,7 @@ const schemaData = {
   description:
     'Commercial vehicle parts, used engines, and used transmissions in California for trucks, vans, and fleet vehicles.',
   url: 'https://theautokingusa.com/commercial-vehicles',
-  telephone: '+1-866-486-5915',
+  telephone: +1-888-318-2840,
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'California',

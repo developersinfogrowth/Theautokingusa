@@ -220,22 +220,26 @@ export function HowItWorks() {
         <div className="how-it-works-inner">
 
           {/* Header */}
-          <div className="how-header">
-            <div className="how-title-row">
-              <div className="how-line" />
-              <h2 className="how-title">
-                — HOW IT <span className="red">WORKS</span> —
-              </h2>
-              <div className="how-line" />
-            </div>
-            <div className="how-dots">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
+          {/* Header */}
+<div className="how-header">
+  <div className="how-title-row">
+    <div className="how-line" />
+
+    <h2 className="how-title">
+      — HOW <span className="red">AUTOKING USA</span> WORKS —
+    </h2>
+
+    <div className="how-line" />
+  </div>
+
+  <div className="how-dots">
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+  </div>
+</div>
 
           {/* Steps */}
           <div className="steps-grid">

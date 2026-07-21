@@ -13,6 +13,7 @@ import {
   TransmissionTypes,
   ShopSupport,
 } from './components';
+import { TopSelling } from "@/app/components/home/hero/TopSelling";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -87,7 +88,7 @@ const schemaData = {
   description:
     'Quality used transmissions for all makes and models with nationwide shipping and warranty options.',
   url: 'https://theautokingusa.com/used-transmission',
-  telephone: '+1-866-486-5915',
+  telephone: +1-888-318-2840,
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'US',
@@ -127,6 +128,21 @@ export default function UsedTransmissionPage() {
             </>
           }
         />
+<TopSelling
+  defaultFilter="transmission"
+  allowedTypes={["transmission"]}
+  showToggle={false}
+  showAllOption={false}
+  eyebrow="Our Inventory"
+  heading={
+    <>
+      Top-Selling{" "}
+      <span className="text-blue-700">Used Transmissions</span>
+    </>
+  }
+  description="Quality-tested used transmissions with warranty coverage and nationwide availability."
+/>
+
 
         {/* Page Sections */}
         <TransmissionIntro />

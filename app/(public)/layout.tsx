@@ -18,11 +18,13 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="font-['DM_Sans',sans-serif] min-h-screen flex flex-col bg-gray-50">
+    <div className="public-site min-h-screen flex flex-col bg-gray-50">
       <Navbar />
+
       <main className="flex-1">
         {children}
       </main>
+
       <Footer />
     </div>
   );

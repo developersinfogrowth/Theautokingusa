@@ -178,13 +178,24 @@ function renderBlockNode(node: TipTapNode, keyPrefix: string): React.ReactNode {
       );
     }
     case 'image': {
-      const src = node.attrs?.src as string;
-      const alt = (node.attrs?.alt as string) || 'Blog image';
-      if (!src || src.trim() === '') return null;
+      const src = node.attrs?.src;
+      const alt =
+        typeof node.attrs?.alt === 'string' && node.attrs.alt.trim()
+          ? node.attrs.alt
+          : 'Blog image';
+
+      if (!isValidImageSrc(src)) return null;
+
       return (
         <div key={key} className="my-6">
           <div className="relative w-full h-[260px] sm:h-[320px] lg:h-[400px]">
-            <Image src={src} alt={alt} fill sizes="(max-width: 1024px) 100vw, 800px" className="object-contain" />
+            <Image
+              src={src.trim()}
+              alt={alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 800px"
+              className="object-contain"
+            />
           </div>
         </div>
       );
@@ -261,6 +272,12 @@ function formatDate(d: string) {
 function formatViews(v: number) {
   return v >= 1000 ? `${(v / 1000).toFixed(1)}K` : String(v);
 }
+
+function isValidImageSrc(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+const DEFAULT_BLOG_IMAGE = '/default-blog.jpg';
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -477,8 +494,8 @@ function RecentlyAddedSidebar({ currentSlug }: { currentSlug: string }) {
               <a key={post.slug} href={`/blogs/${post.slug}`}
                 className="group flex gap-3 p-3 border border-gray-100 rounded-xl hover:shadow-sm hover:border-[#C41E3A]/20 transition-all duration-200">
                 <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
-                  {post.cover_image
-                    ? <Image src={post.cover_image} alt={post.title} width={64} height={64} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+                  {isValidImageSrc(post.cover_image)
+                    ? <Image src={post.cover_image.trim()} alt={post.title} width={64} height={64} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                     : <div className="w-full h-full bg-gray-200" />
                   }
                 </div>
@@ -634,8 +651,8 @@ export default function AutoKingBlogDetailPage({ blog }: BlogDetailPageProps) {
         <div className="w-full lg:flex-1 lg:min-w-0">
           <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[500px] xl:h-[580px] bg-gray-900">
             <Image
-              src={blog.cover_image}
-              alt={blog.title}
+              src={isValidImageSrc(blog.cover_image) ? blog.cover_image.trim() : DEFAULT_BLOG_IMAGE}
+              alt={blog.title || 'The AutoKing USA blog'}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 65vw"
@@ -679,9 +696,15 @@ export default function AutoKingBlogDetailPage({ blog }: BlogDetailPageProps) {
         <div className="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           {blog.author_name && (
             <div className="flex items-center gap-3">
-              {blog.author_avatar && (
+              {isValidImageSrc(blog.author_avatar) && (
                 <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white shadow-sm border border-gray-100 flex-shrink-0">
-                  <img src={blog.author_avatar} alt={blog.author_name} className="w-full h-full object-contain" />
+                  <Image
+                    src={blog.author_avatar.trim()}
+                    alt={blog.author_name || 'Blog author'}
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               )}
               <div>

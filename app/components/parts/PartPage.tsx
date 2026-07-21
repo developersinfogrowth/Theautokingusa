@@ -54,6 +54,16 @@ function BrandIcon({ title }: { title: string }) {
   );
 }
 
+// ── URL helpers ───────────────────────────────────────────────
+// Locations now live under /used-engine/[slug] (their canonical home),
+// alongside engines. Keep this in one place so both PartPage and
+// RecentPages agree on where each type resolves to.
+function detailHrefBase(type: string) {
+  if (type === "transmission") return "/used-transmission";
+  // engine AND location both resolve under /used-engine
+  return "/used-engine";
+}
+
 // ── PartPage ──────────────────────────────────────────────────
 export default function PartPage({ slug, type }: Props) {
   const [part, setPart] = useState<any>(null);
@@ -93,14 +103,22 @@ export default function PartPage({ slug, type }: Props) {
   if (!part) return notFound();
 
   // ── Derived values ────────────────────────────────────────
-  const typeLabel =
-    type === "engine" ? "Engine"
-    : type === "transmission" ? "Transmission"
+ const typeLabel =
+  type === "engine"
+    ? "Engine"
+    : type === "transmission"
+    ? "Transmission"
+    : type === "location"
+    ? "Location"
     : "Part";
 
-  const partTypeHref =
-    type === "engine" ? "/used-engines"
-    : type === "transmission" ? "/used-transmissions"
+const partTypeHref =
+  type === "engine"
+    ? "/used-engines"
+    : type === "transmission"
+    ? "/used-transmissions"
+    : type === "location"
+    ? "/location"
     : "/used-engines";
 
   const heroImageMap: Record<string, string> = {
@@ -383,10 +401,14 @@ function RecentPages({
 
   if (pages.length === 0) return null;
 
+  // Category listing pages stay where they were — only the detail-page
+  // URLs moved (locations now resolve under /used-engine/[slug]).
   const viewAllHref =
     type === "engine"
       ? "/used-engine"
-      : "/used-transmission";
+      : type === "transmission"
+      ? "/used-transmission"
+      : "/location";
 
   return (
     <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
@@ -394,7 +416,12 @@ function RecentPages({
         <div className="w-[3px] h-4 rounded-full bg-red-600" />
 
         <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">
-          More {type === "engine" ? "Engines" : "Transmissions"}
+       More{" "}
+{type === "engine"
+  ? "Engines"
+  : type === "transmission"
+  ? "Transmissions"
+  : "Locations"}
         </span>
       </div>
 
@@ -402,11 +429,7 @@ function RecentPages({
         {pages.map((page, i) => (
           <Link
             key={i}
-            href={`/${
-              type === "engine"
-                ? "used-engine"
-                : "used-transmission"
-            }/${page.slug}`}
+            href={`${detailHrefBase(type)}/${page.slug}`}
             className="group flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl p-2.5 hover:border-red-200 hover:shadow-md transition-all"
           >
             <div className="shrink-0 w-10 h-10 bg-red-50 border border-red-100 rounded-lg flex items-center justify-center">

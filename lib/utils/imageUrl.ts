@@ -11,7 +11,7 @@
  * 
  * @example
  * // Input: https://your-project.supabase.co/storage/v1/object/public/blog-images/...
- * // Output: https://infoautoparts.com/api/images?src=https%3A%2F%2Fyour-project...
+
  */
 export function convertToCustomDomain(supabaseUrl: string | null): string | null {
   if (!supabaseUrl) {

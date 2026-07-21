@@ -166,7 +166,7 @@ const schemaData = {
   description:
     'Trusted source for quality used engines, transmissions, and OEM auto parts serving customers nationwide since 2018.',
   url: 'https://theautokingusa.com',
-  telephone: '+1-866-486-5915',
+  telephone: +1-888-318-2840,
   foundingDate: '2018',
   address: {
     '@type': 'PostalAddress',

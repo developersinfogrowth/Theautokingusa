@@ -1,7 +1,15 @@
-import { LucideIcon, Package, DollarSign, Shield, Truck, Clock, Award } from 'lucide-react';
+import {
+  type LucideIcon,
+  Package,
+  DollarSign,
+  Shield,
+  Truck,
+  Clock,
+  Award,
+} from 'lucide-react';
 
-export const PHONE_NUMBER = '+18664865915';
-export const PHONE_DISPLAY = '+1 (866) 486-5915';
+export const PHONE_NUMBER = '+18883182840';
+export const PHONE_DISPLAY = '+1 (888) 318-2840';
 
 // Why California Businesses Choose Us
 export interface FeatureCard {
@@ -49,7 +57,7 @@ export const CALIFORNIA_FEATURES: FeatureCard[] = [
   },
 ];
 
-// Truck Brand Groups (Combined into 2 sections to use only 2 images)
+// Commercial truck brand sections
 export interface TruckBrandGroup {
   id: string;
   title: string;
@@ -62,37 +70,92 @@ export interface TruckBrandGroup {
 
 export const TRUCK_BRAND_GROUPS: TruckBrandGroup[] = [
   {
-    id: 'freightliner-mack',
-    title: 'Freightliner & Mack',
-    brands: ['Freightliner', 'Mack'],
-    image: '/images/freightliner‑mack‑trucks.jpg',
+    id: 'freightliner',
+    title: 'Freightliner',
+    brands: ['Freightliner'],
+    image: '/images/freightliner.webp',
     engineDescription:
-      'Keep your truck working hard with dependable used Freightliner and Mack engines built for heavy-duty hauling and long-distance performance. Trusted across California industries from logistics to construction, our tested used engines help restore power and efficiency at a fraction of new replacement costs.',
+      'Freightliner trucks are trusted for long-haul transportation, logistics, and commercial fleet operations. Our quality-tested used Freightliner engines help restore dependable power while reducing replacement costs for owner-operators and businesses.',
     transmissionDescription:
-      'We carry used Freightliner and Mack transmissions inspected for smooth shifting and reliable drivetrain operation. Whether you run local routes or interstate loads, quality used transmissions help reduce downtime and extend vehicle life.',
+      'Our used Freightliner transmissions are thoroughly inspected for smooth shifting, dependable drivetrain performance, and long-term commercial reliability. They provide an affordable solution for keeping Freightliner trucks operating efficiently.',
     highlights: [
-      'Heavy-duty hauling capability',
-      'Long-distance performance tested',
-      'Smooth shifting verified',
-      'California logistics trusted',
-      'Cost-effective replacements',
+      'Heavy-duty commercial performance',
+      'Long-haul reliability',
+      'Quality-tested engines',
+      'Smooth-shifting transmissions',
+      'Fast California & nationwide shipping',
     ],
   },
+
   {
-    id: 'peterbilt-volvo-international',
-    title: 'Peterbilt, Volvo & International',
-    brands: ['Peterbilt', 'Volvo', 'International'],
-    image: '/images/peterbilt-volvo-international.jpg',
+    id: 'mack',
+    title: 'Mack',
+    brands: ['Mack'],
+    image: '/images/mack.webp',
     engineDescription:
-      'Peterbilt, Volvo, and International trucks are built for serious workloads and long-haul reliability. Our used engines offer practical solutions for restoring performance while controlling maintenance expenses. Each engine is inspected to deliver reliable power and better operating value for California businesses.',
+      'Mack trucks are engineered for construction, heavy hauling, and demanding commercial applications. Our inspected used Mack engines deliver dependable power while helping reduce maintenance costs for fleets and owner-operators.',
     transmissionDescription:
-      'We stock used Peterbilt, Volvo, and International transmissions quality-tested for strength, smooth operation, and long-term reliability. Ideal for owner-operators and fleet vehicles needing dependable replacement parts that lower repair costs and minimize downtime.',
+      'Our used Mack transmissions are inspected for reliable shifting, heavy-duty drivetrain strength, and long-term commercial performance. They provide a dependable replacement solution that minimizes downtime.',
     highlights: [
-      'Serious workload capacity',
-      'Long-haul reliability tested',
-      'Advanced engineering standards',
-      'Owner-operator trusted',
+      'Heavy-haul capability',
+      'Construction-ready performance',
+      'Quality-tested powertrain',
+      'Reliable drivetrain operation',
+      'Fleet & owner-operator support',
+    ],
+  },
+
+  {
+    id: 'peterbilt',
+    title: 'Peterbilt',
+    brands: ['Peterbilt'],
+    image: '/images/peterbilt.webp',
+    engineDescription:
+      'Peterbilt trucks are built for demanding workloads, long-haul transportation, and dependable commercial performance. Our quality-tested used Peterbilt engines provide a practical replacement solution for restoring power while helping fleets and owner-operators control repair costs.',
+    transmissionDescription:
+      'Our used Peterbilt transmissions are inspected for smooth shifting, dependable drivetrain operation, and reliable heavy-duty performance. They provide a cost-effective replacement option for commercial trucks operating across California and nationwide.',
+    highlights: [
+      'Long-haul performance',
+      'Heavy-duty power delivery',
+      'Quality-tested replacement engines',
+      'Smooth transmission operation',
+      'Fleet & owner-operator support',
+    ],
+  },
+
+  {
+    id: 'volvo',
+    title: 'Volvo',
+    brands: ['Volvo'],
+    image: '/images/volvo.webp',
+    engineDescription:
+      'Volvo commercial trucks are known for efficient performance, advanced engineering, and dependable long-distance operation. Our used Volvo engines are inspected to help restore reliable power, fuel efficiency, and everyday productivity for commercial vehicles.',
+    transmissionDescription:
+      'We provide used Volvo transmissions tested for smooth shifting, dependable operation, and long-term commercial use. These replacement units help reduce repair expenses and get fleet vehicles back on the road with minimal downtime.',
+    highlights: [
+      'Efficient commercial performance',
+      'Advanced engineering',
+      'Reliable long-distance operation',
+      'Quality-inspected components',
+      'Cost-effective fleet repairs',
+    ],
+  },
+
+  {
+    id: 'international',
+    title: 'International',
+    brands: ['International'],
+    image: '/images/international.webp',
+    engineDescription:
+      'International trucks support a wide range of commercial applications including freight, delivery, construction, and fleet operations. Our used International engines are inspected to provide dependable power and practical value for demanding business use.',
+    transmissionDescription:
+      'Our used International transmissions are quality-tested for reliable shifting, drivetrain strength, and consistent commercial operation. They offer an affordable replacement solution for businesses looking to reduce downtime and extend truck service life.',
+    highlights: [
+      'Commercial-grade reliability',
       'Fleet-ready performance',
+      'Reliable drivetrain strength',
+      'Quality-tested replacement parts',
+      'Fast California & nationwide shipping',
     ],
   },
 ];
@@ -107,7 +170,7 @@ export const WHY_CHOOSE_FEATURES: WhyChooseFeature[] = [
   {
     title: 'Built for Commercial Vehicle Needs',
     description:
-      'We understand that every hour off the road costs money. That\'s why we focus on dependable parts, fast delivery, and service that helps businesses stay operational.',
+      "We understand that every hour off the road costs money. That's why we focus on dependable parts, fast delivery, and service that helps businesses stay operational.",
   },
   {
     title: 'Cost-Effective Repairs',
